@@ -17,11 +17,22 @@ public class QueryConstants {
 
     public static final String ADD_RESULT = "insert into results (loginId, testId, dat, mark) values(?,?,?,?);";
 
-    public static final String FIND_MARKS ="select logins.name as name, avg(results.mark) as mark\n" +
+    public static final String FIND_MEAN_INT_MARKS ="select logins.name as name, avg(results.mark) as mark\n" +
             "from results\n" +
             "inner join logins on loginId = logins.idlogin\n" +
             "group by loginId\n" +
             "order by mark desc;";
+    public static final String FIND_MEAN_DOUBLE_MARKS ="select logins.name as name, avg(results.mark/10) as mark\n" +
+            "from results\n" +
+            "inner join logins on loginId = logins.idlogin\n" +
+            "group by loginId\n" +
+            "order by mark desc;";
+    public static final String FIND_MEAN_HALF_MARKS ="select logins.name as name, avg(results.mark/2) as mark\n" +
+            "from results\n" +
+            "inner join logins on loginId = logins.idlogin\n" +
+            "group by loginId\n" +
+            "order by mark desc;";
+
     public static final String FIND_RESULTS = "select logins.name as name, tests.name as test, results.dat, results.mark\n" +
             "from results\n" +
             "inner join logins on loginId = logins.idlogin\n" +
